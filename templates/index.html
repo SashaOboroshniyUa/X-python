@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Системний моніторинг</title>
+    <link rel="stylesheet" href="../static/css/style.css" id="theme">
+    <link rel="icon" href="../static/images/logo.png">
+</head>
+<body>
+    <div>
+        <div class="content">
+            <button id="switchM">
+                Switch mode
+            </button>
+        </div>
+    </div>
+
+    <h1>Моніторинг системи</h1>
+
+    <h2>Використання CPU</h2>
+    <p>Завантаження CPU: {{ cpu_usage }}%</p>
+
+    <h2>Використання пам'яті</h2>
+    <p>Загальна пам'ять: {{ memory_total|round(2) }} ГБ</p>
+    <div class="content">
+    <img src="{{ url_for('static', filename='images/memory_usage.png') }}">
+    </div>
+    <h2>Використання дисків</h2>
+    {% for disk in disks_info %}
+        <h3>Диск {{ disk.device }} ({{ disk.mountpoint }})</h3>
+        <p>Загальний обсяг: {{ disk.total|round(2) }} ГБ</p>
+        <p>Зайнято: {{ disk.used|round(2) }} ГБ</p>
+        <p>Вільно: {{ disk.free|round(2) }} ГБ</p>
+        <div class="content">
+        <img src="{{ url_for('static', filename='images/disk_usage_' + disk.device|replace(':', '')|replace('\\', '')|replace('/', '') + '.png') }}">
+        </div>
+    {% endfor %}
+    <script>
+        let switchM = document.getElementById("switchM")
+
+        switchM.onclick = function() {
+          let theme = document.getElementById("theme")
+
+        if(theme.getAttribute("href") == "static/css/style.css"){
+          theme.href = "static/css/style_two.css"
+        } else {
+          theme.href = "static/css/style.css"
+        }
+      }
+  </script>
+</body>
+</html>

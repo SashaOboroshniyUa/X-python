@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: linear-gradient(270deg, #2376ae 0%, #c16ecf 100%);
+    font-family: sans-serif;
+    transition: 2s;
+}
+
+h1, h2, h3, p{
+    text-align: center;
+}
+
+button{
+    border: none;
+    color: black;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 30px;
+    background-color: white;
+    cursor: pointer;
+    transition: 2s;
+    border-radius: 3px;
+}
+
+button:hover{
+    background-color: indigo;
+    color: white;
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
