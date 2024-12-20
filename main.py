@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 matplotlib.use("Agg")
 
-os.makedirs("static/images", exist_ok=True) #шадавро путь
+os.makedirs("static/images", exist_ok=True) # шадавро путь
 
 operation_system = platform.platform()
 
@@ -29,7 +29,7 @@ def create_ram_diagram(): #графік використання RAM
     plt.close()
 
 
-def create_disk_diagram(): #графіки для всіх дисків
+def create_disk_diagram(): # графіки для всіх дисків
     partitions = psutil.disk_partitions()
     for partition in partitions:
         try:
@@ -42,7 +42,7 @@ def create_disk_diagram(): #графіки для всіх дисків
             plt.title(f"Диск {partition.device} ({partition.mountpoint})")
             plt.axis("equal")
 
-            safe_device_name = re.sub(r'[\\/:"<>|()]', '', partition.device) #r це фігня щоб не було помилок за \ тому що в диску треба удалити(другі знаки добавлені для того щоб ще показувало інфу про флешки тому що не знаю є там такі знаки чи буде все ок)
+            safe_device_name = re.sub(r'[\\/:"<>|()]', '', partition.device) # r це фігня щоб не було помилок за \ тому що в диску треба удалити(другі знаки добавлені для того щоб ще показувало інфу про флешки тому що не знаю є там такі знаки чи буде все ок)
             filename = f"static/images/disk_usage_{safe_device_name}.png"
 
             plt.savefig(filename)
