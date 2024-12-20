@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    width: 400px;
+    border: 25px solid gray;
+    border-radius: 25px;
+    padding: 25px;
+    margin: 25px;
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    text-align: center;
+}
+
+.link{
+    text-decoration: none;
+}

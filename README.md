@@ -12,7 +12,11 @@ python -m venv .venv
 
 pip install psutil
 
-pip install tabulate
+pip install matplotlib
+
+pip install flask
+
+start main.py
 
 Visual Studio Code:
 
@@ -20,8 +24,12 @@ git clone https://github.com/SashaOboroshniyUa/X-python.git
 
 python -m venv venv
 
-pip install -r requirements.txt
-
 .\venv\Scripts\activate
+
+pip install psutil
+
+pip install matplotlib
+
+pip install flask
 
 start main.py
